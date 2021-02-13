@@ -3,7 +3,7 @@
 import os, re, datetime
 
 speedtestCliFile = 'speedtest.py'
-speedtestParameters = '' 
+speedtestParameters = ''
 
 speedtest = os.popen("python " + speedtestCliFile + " " + speedtestParameters).read()
 
