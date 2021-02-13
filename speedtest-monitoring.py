@@ -5,7 +5,8 @@ import os, re, datetime
 speedtestCliFile = 'speedtest.py'
 speedtestParameters = ''
 
-speedtest = os.popen("python " + speedtestCliFile + " " + speedtestParameters).read()
+path = os.path.dirname(os.path.abspath(__file__)) + "/"
+speedtest = os.popen("python " + path + speedtestCliFile + " " + speedtestParameters).read()
 
 downloadOutput = False
 uploadOutput = False
@@ -25,5 +26,5 @@ if downloadOutput:
 if uploadOutput:
 	writeOutput = writeOutput + uploadOutput
 
-with open('output.csv', 'a+') as file:
+with open(path + 'output.csv', 'a+') as file:
 	file.write(writeOutput + '\n')
