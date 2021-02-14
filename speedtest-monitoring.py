@@ -15,15 +15,11 @@ writeOutput = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 download = re.search('Download: (.*?) ', speedtest)
 if download:
 	downloadOutput = ";" + download.group(1)
+	writeOutput = writeOutput + downloadOutput
 
 upload = re.search('Upload: (.*?) ', speedtest)
 if upload:
 	uploadOutput = ";" + upload.group(1)
-
-if downloadOutput:
-	writeOutput = writeOutput + downloadOutput
-
-if uploadOutput:
 	writeOutput = writeOutput + uploadOutput
 
 with open(path + 'output.csv', 'a+') as file:
